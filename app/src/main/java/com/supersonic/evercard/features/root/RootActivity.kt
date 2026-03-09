@@ -1,12 +1,16 @@
 package com.supersonic.evercard.features.root
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import com.supersonic.evercard.databinding.ActivityRootBinding
 
-class RootActivity : ComponentActivity() {
+class RootActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityRootBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        binding = ActivityRootBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
