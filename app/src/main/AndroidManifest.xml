@@ -12,9 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Evercard">
         <activity
-            android:name=".main.ui.MainActivity"
+            android:name=".features.root.RootActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.Evercard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
