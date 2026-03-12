@@ -4,12 +4,13 @@ xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/splash_screen"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-tools:context=".SplashScreenFragment">
+tools:context=".features.splash.ui.SplashScreenFragment">
 
     <ImageView
         android:id="@+id/splashImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/splash_descr"
         android:src="@drawable/my_splash_screen001"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -10,5 +10,9 @@
 
         <!-- Цвет статус-бара -->
         <item name="android:statusBarColor" >@color/purple_700</item>
+
+        <!-- Прозрачная основа для анимации появления -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 </resources>

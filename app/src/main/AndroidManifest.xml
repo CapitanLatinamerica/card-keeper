@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Evercard">
         <activity
-            android:name=".features.root.RootActivity"
+            android:name=".features.root.ui.RootActivity"
             android:exported="true"
             android:theme="@style/Theme.Evercard">
             <intent-filter>
