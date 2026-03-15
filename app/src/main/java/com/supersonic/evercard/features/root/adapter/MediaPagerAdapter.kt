@@ -8,12 +8,13 @@ class MediaPagerAdapter(
     fragment: Fragment
 ) : FragmentStateAdapter(fragment) {
 
-    override fun getItemCount(): Int = 2
+    override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
         return when(position) {
             0 -> CardListFragment.newInstance()
             1 -> CardListFragment.newInstance()
+            2 -> CardListFragment.newInstance()
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

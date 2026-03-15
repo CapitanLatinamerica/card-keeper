@@ -7,4 +7,5 @@
     <string name="favorite_cards">Избранные</string>
     <string name="cleartext">ClearText</string>
     <string name="cardNameString">Название карты</string>
+    <string name="new_folder">Новая папка</string>
 </resources>

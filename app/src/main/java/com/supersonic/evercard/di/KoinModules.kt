@@ -2,7 +2,9 @@ package com.supersonic.evercard.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.supersonic.evercard.features.root.ui.MainFragmentViewModel
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 // ============================================================
@@ -31,20 +33,13 @@ val appModule = module {
      * Внутри фигурных скобок мы описываем, КАК создать эту зависимость.
      */
     single<SharedPreferences> {
-        /**
-         * androidContext() — специальная функция Koin, которая даёт доступ
-         * к контексту приложения (Application Context).
-         *
-         * Мы передаём этот контекст в нашу фабричную функцию provideSharedPreferences,
-         * которая создаст экземпляр SharedPreferences.
-         */
         provideSharedPreferences(androidContext())
     }
 
     // Здесь можно добавить другие зависимости:
     // - Репозитории (single { LoyaltyCardRepositoryImpl(get()) })
     // - Базу данных (single { AppDatabase.getInstance(androidContext()) })
-    // - ViewModel'и (viewModel { MainViewModel(get()) })
+    viewModel { MainFragmentViewModel() }
 }
 
 // ============================================================
