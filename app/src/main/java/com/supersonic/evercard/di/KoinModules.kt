@@ -2,6 +2,7 @@ package com.supersonic.evercard.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.supersonic.evercard.features.cards_list.ui.CardListViewModel
 import com.supersonic.evercard.features.root.ui.MainFragmentViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
@@ -40,6 +41,7 @@ val appModule = module {
     // - Репозитории (single { LoyaltyCardRepositoryImpl(get()) })
     // - Базу данных (single { AppDatabase.getInstance(androidContext()) })
     viewModel { MainFragmentViewModel() }
+    viewModel { CardListViewModel() }
 }
 
 // ============================================================

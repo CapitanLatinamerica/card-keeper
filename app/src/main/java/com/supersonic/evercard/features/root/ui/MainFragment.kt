@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.supersonic.evercard.R
@@ -34,8 +33,12 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pagerAdapter = MediaPagerAdapter(this)
-        val viewPager = view.findViewById<ViewPager2>(R.id.view_pager)
         val tabLayout = view.findViewById<TabLayout>(R.id.tabs)
+
+        val viewPager = binding.viewPager
+        // Рекомендуется включить загрузку соседних страниц
+        viewPager.offscreenPageLimit = 3
+
 
         //Метод, чтобы Вью не заезжал на статусбар
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->

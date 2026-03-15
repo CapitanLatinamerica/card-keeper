@@ -1,4 +1,6 @@
 package com.supersonic.evercard.features.cards_list.ui
 
-class CardListViewModel {
+import androidx.lifecycle.ViewModel
+
+class CardListViewModel : ViewModel()  {
 }
