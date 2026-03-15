@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.supersonic.evercard.databinding.FragmentCardListBinding
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.CompositePageTransformer
-import androidx.viewpager2.widget.MarginPageTransformer
+import com.supersonic.evercard.databinding.FragmentCardListBinding
 import com.supersonic.evercard.features.root.adapter.CardAdapter
 import com.supersonic.evercard.features.root.data.DiscountCard
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.getValue
 
 class CardListFragment : Fragment() {
 
@@ -46,26 +43,28 @@ class CardListFragment : Fragment() {
 
         // 2. Настройка карусели
         binding.cardsViewPager.offscreenPageLimit = 3
-        val transformer = CompositePageTransformer().apply {
-            // Используем только положительный отступ или 0
-            addTransformer(MarginPageTransformer(20))
+        binding.cardsViewPager.setPageTransformer { page, position ->
+            val absPos = Math.abs(position)
+            val r = 1 - Math.min(1f, absPos) // Ограничиваем, чтобы r не уходил в минус
 
-            addTransformer { page, position ->
-                val r = 1 - Math.abs(position)
+            // Если r=1 (центр), то scaleX = 1.0 (полная ширина)
+            // Если r=0 (сосед), то scaleX = 0.8 (сужена)
+            page.scaleX = 0.8f + (r * 0.2f)
 
-                // 1. Масштаб (чтобы боковые карты были чуть уже центральной)
-                page.scaleX = 0.85f + r * 0.15f
+            // Высота: схлопываем боковые до состояния "полоски"
+            val minScaleY = 0.25f
+            page.scaleY = minScaleY + (r * (1f - minScaleY))
 
-                // 2. Эффект наслоения (сближаем карты вручную)
-                // Чем больше число (например, -150), тем сильнее карты будут заезжать друг под друга
-                // position * page.height / 3 — это примерный расчет для нахлеста
-                page.translationY = -150 * position
+            // Наслоение: чем сильнее схлопнута карта по Y, тем ближе её надо подтянуть
+            // Попробуйте увеличить 0.65f до 0.75f, если дыры между картами всё еще большие
+            page.translationY = -page.height * 0.75f * position
 
-                // 3. Прозрачность
-                page.alpha = 0.5f + r * 0.5f
-            }
+            page.alpha = 0.6f + (r * 0.4f)
+
+            // Важно для перекрытия: центральная карта выше всех
+            page.translationZ = if (absPos < 0.5) 10f else 0f
         }
-        binding.cardsViewPager.setPageTransformer(transformer)
+
     }
 
     override fun onDestroyView() {
