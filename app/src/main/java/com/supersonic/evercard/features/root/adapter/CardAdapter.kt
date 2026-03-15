@@ -9,6 +9,8 @@ import com.supersonic.evercard.features.root.data.DiscountCard
 
 class CardAdapter(private val cards: List<DiscountCard>) :
     RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+    // Огромное число для имитации бесконечности
+    private val infiniteCount = Int.MAX_VALUE
 
     class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cardView: androidx.cardview.widget.CardView = view.findViewById(R.id.cardContainer)
@@ -22,7 +24,8 @@ class CardAdapter(private val cards: List<DiscountCard>) :
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        val card = cards[position]
+        val realPosition = position % cards.size
+        val card = cards[realPosition]
 
         holder.title.text = card.name
         holder.cardView.setCardBackgroundColor(card.color)
@@ -30,5 +33,5 @@ class CardAdapter(private val cards: List<DiscountCard>) :
         // Здесь позже добавим отображение логотипа и штрих-кода
     }
 
-    override fun getItemCount() = cards.size
+    override fun getItemCount(): Int = if (cards.isEmpty()) 0 else infiniteCount
 }

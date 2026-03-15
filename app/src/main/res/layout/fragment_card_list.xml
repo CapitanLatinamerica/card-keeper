@@ -7,12 +7,11 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/cardsViewPager"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical"
+        android:paddingTop="200dp"
+        android:paddingBottom="200dp"
         android:clipChildren="false"
-        android:clipToPadding="false"
-        android:paddingTop="80dp"
-        android:paddingBottom="80dp" />
+        android:clipToPadding="false" />
 
 </FrameLayout>
