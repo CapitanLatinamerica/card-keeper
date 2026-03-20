@@ -14,4 +14,20 @@
     <color name="clear_icon_color_dark">#000000</color>
     <color name="find_line_color">#E6E8EB</color>
     <color name="cursor_color">#3772E7</color> <!-- Красный цвет для курсора -->
+
+    <!-- Цвета из макета -->
+    <color name="main_blue">#35375B</color>
+    <color name="main_carrot">#FF5632</color>
+    <color name="main_carrot_light">#FF7E61</color>
+    <color name="main_black">#2B2727</color>
+    <color name="main_white">#FEFEFE</color>
+    <color name="secondary_green">#00BE7C</color>
+    <color name="secondary_red">#FF3257</color>
+    <color name="secondary_light">#EFEFEF</color>
+    <color name="secondary_brown">#B15224</color>
+    <color name="secondary_brown_light">#F0E7DF</color>
+    <color name="secondary_dark">#9EA0A8</color>
+    <color name="secondary_grey">#BCBEC8</color>
+    <color name="secondary_blue_light">#DDDDE1</color>
+
 </resources>

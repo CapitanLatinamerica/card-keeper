@@ -43,17 +43,16 @@
             android:layout_marginEnd="12dp"
             android:layout_weight="1">
 
+            <!-- Кнопка очистки (скрыта по умолчанию) -->
             <EditText
                 android:id="@+id/findEditText"
                 style="@style/MyAwesomeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_centerVertical="true"
-                android:imeOptions="actionDone"
                 android:hint="@string/cardNameString"
+                android:imeOptions="actionDone"
                 android:singleLine="true" />
 
-            <!-- Кнопка очистки (скрыта по умолчанию) -->
             <ImageView
                 android:id="@+id/clearTextIcon"
                 android:layout_width="16dp"
