@@ -32,15 +32,19 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pagerAdapter = MediaPagerAdapter(this)
-        val tabLayout = view.findViewById<TabLayout>(R.id.tabs)
 
+        // Восстанавливаем сохранённую позицию таба
+        savedInstanceState?.getInt("current_tab")?.let {
+            viewModel.setCurrentTab(it)
+        }
+
+        pagerAdapter = MediaPagerAdapter(this)
+        val tabLayout = binding.tabs
         val viewPager = binding.viewPager
-        // Рекомендуется включить загрузку соседних страниц
+
         viewPager.offscreenPageLimit = 3
 
-
-        //Метод, чтобы Вью не заезжал на статусбар
+        // Отступы под системные бары
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -58,6 +62,14 @@ class MainFragment : Fragment() {
             }
 
         }.attach()
+
+        // Сохраняем позицию таба при переключении
+        viewPager.registerOnPageChangeCallback(object : androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                viewModel.setCurrentTab(position)
+            }
+        })
     }
 
     override fun onDestroyView() {
