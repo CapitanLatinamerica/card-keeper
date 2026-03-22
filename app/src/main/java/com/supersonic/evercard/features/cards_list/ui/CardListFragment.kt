@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.supersonic.evercard.databinding.FragmentCardListBinding
@@ -57,6 +58,25 @@ class CardListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.cards.collectLatest { cards ->
                 updateAdapter(cards)
+            }
+        }
+
+        // Подписка на состояние загрузки
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.isLoading.collectLatest { isLoading ->
+                binding.progressBar.isVisible = isLoading
+            }
+        }
+
+// Подписка на ошибки
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.error.collectLatest { error ->
+                if (error != null) {
+                    binding.errorText.text = error
+                    binding.errorText.isVisible = true
+                } else {
+                    binding.errorText.isVisible = false
+                }
             }
         }
     }

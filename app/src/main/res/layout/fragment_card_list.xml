@@ -5,6 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="@dimen/search_progress_bar_diameter"
+        android:layout_height="@dimen/search_progress_bar_diameter"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="140dp"
+        android:indeterminateTint="@color/secondary_brown_light"/>
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:text="@string/no_cards_found"
+        android:visibility="gone"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/ys_display_medium"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_size_error_message"
+        android:textColor="?attr/colorOnPrimary" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/cardsViewPager"
         android:layout_width="match_parent"

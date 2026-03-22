@@ -8,4 +8,5 @@
     <string name="cleartext">ClearText</string>
     <string name="cardNameString">Название карты</string>
     <string name="new_folder">Новая папка</string>
+    <string name="no_cards_found">Нет никаких карт</string>
 </resources>
