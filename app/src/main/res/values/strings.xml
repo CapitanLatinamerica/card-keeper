@@ -9,4 +9,6 @@
     <string name="cardNameString">Название карты</string>
     <string name="new_folder">Новая папка</string>
     <string name="no_cards_found">Нет никаких карт</string>
+    <string name="add_folder">Добавление новой папки</string>
+    <string name="add_new_folder">Добавить папку</string>
 </resources>
