@@ -1,9 +1,12 @@
 package com.supersonic.evercard.features.root.ui
 
+import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -32,6 +35,9 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val isDarkMode = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+        Log.d("ThemeTest", "Тёмная тема включена: $isDarkMode")
 
         // Восстанавливаем сохранённую позицию таба
         savedInstanceState?.getInt("current_tab")?.let {
@@ -82,5 +88,10 @@ class MainFragment : Fragment() {
         viewModel.currentTab.value?.let {
             outState.putInt("current_tab", it)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
     }
 }

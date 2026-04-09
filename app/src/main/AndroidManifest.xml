@@ -15,7 +15,8 @@
         <activity
             android:name=".features.root.ui.RootActivity"
             android:exported="true"
-            android:theme="@style/Theme.Evercard">
+            android:theme="@style/Theme.Evercard"
+            android:configChanges="uiMode|screenSize|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

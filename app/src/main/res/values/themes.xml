@@ -17,6 +17,8 @@
         <!-- Цвет статус-бара -->
         <item name="android:statusBarColor" >@color/main_black</item>
 
+        <item name="cardTitleColor">@android:color/white</item>
+
     </style>
 
 </resources>
