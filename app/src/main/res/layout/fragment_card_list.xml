@@ -26,14 +26,12 @@
         android:textSize="@dimen/text_size_error_message"
         android:textColor="?attr/colorOnPrimary" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/cardsViewPager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cardsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:clipToPadding="false"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:clipChildren="false"
-        android:clipToPadding="false" />
+        android:paddingBottom="20dp" />
 
 </FrameLayout>

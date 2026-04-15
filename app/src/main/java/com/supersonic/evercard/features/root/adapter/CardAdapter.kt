@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.supersonic.evercard.R
 import com.supersonic.evercard.features.root.data.DiscountCard
 
-class CardAdapter(private val cards: List<DiscountCard>) :
-    RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class CardAdapter(
+    private var cards: List<DiscountCard>
+) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cardView: androidx.cardview.widget.CardView = view.findViewById(R.id.cardContainer)
@@ -22,13 +23,16 @@ class CardAdapter(private val cards: List<DiscountCard>) :
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        // Для бесконечной прокрутки
         val realPosition = position % cards.size
         val card = cards[realPosition]
-
         holder.title.text = card.name
         holder.cardView.setCardBackgroundColor(card.color)
     }
 
     override fun getItemCount(): Int = if (cards.isEmpty()) 0 else Int.MAX_VALUE
+
+    fun updateCards(newCards: List<DiscountCard>) {
+        cards = newCards
+        notifyDataSetChanged()
+    }
 }
