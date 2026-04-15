@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Тёмная тема для всего приложения -->
+    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Основные цвета для тёмной темы -->
+        <item name="colorPrimary">@color/main_black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/secondary_dark</item>
+        <item name="colorSurface">@color/secondary_dark</item>
+        <item name="colorOnSurface">@color/secondary_brown_light</item>
+        <item name="colorPrimaryContainer">@color/secondary_brown</item>
+        <item name="colorOnPrimaryContainer">@color/secondary_blue_light</item>
+        <item name="colorTertiary">@color/secondary_grey</item>
+        <item name="colorOnTertiary">@color/main_carrot_light</item>
+
+        <!-- Цвет статус-бара -->
+        <item name="android:statusBarColor">@color/main_black</item>
+
+        <item name="cardTitleColor">@color/main_black</item>
+    </style>
+
+</resources>

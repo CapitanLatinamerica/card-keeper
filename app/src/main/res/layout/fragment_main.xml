@@ -7,51 +7,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
-    android:orientation="vertical"
     tools:context=".features.root.ui.MainFragment">
 
-    <!-- Горизонтальные направляющие -->
+    <!-- Горизонтальные направляющие (отступы 16dp) -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="24dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="24dp" />
+        app:layout_constraintGuide_end="16dp" />
 
     <!-- Верхний блок с поиском -->
     <LinearLayout
         android:id="@+id/searchContainer"
         android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="4dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.9">
+
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="12dp"
             android:layout_weight="1">
 
+            <!-- Кнопка очистки (скрыта по умолчанию) -->
             <EditText
                 android:id="@+id/findEditText"
                 style="@style/MyAwesomeEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/cardNameString"
                 android:imeOptions="actionDone"
                 android:singleLine="true" />
 
-            <!-- Кнопка очистки -->
             <ImageView
                 android:id="@+id/clearTextIcon"
                 android:layout_width="16dp"
@@ -60,34 +61,80 @@
                 android:layout_centerVertical="true"
                 android:layout_margin="10dp"
                 android:background="@android:color/transparent"
-                android:contentDescription="ClearText"
+                android:contentDescription="@string/cleartext"
+                android:visibility="gone"
                 android:src="@drawable/close" />
         </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Settings button"
+            android:src="@drawable/ic_settings_16dp" />
     </LinearLayout>
 
-    <!-- Табы -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        style="@style/TabLayoutTheme"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchContainer"
-        app:layout_constraintWidth_percent="0.9"
-        app:tabIndicatorColor="?attr/colorOnPrimary"
-        app:tabIndicatorHeight="2dp"
-        app:tabSelectedTextColor="?attr/colorPrimary"
-        app:tabTextColor="?attr/colorOnPrimary" />
 
+    <LinearLayout
+        android:id="@+id/tabsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/searchContainer">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            style="@style/Widget.Evercard.TabLayout"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:background="?attr/colorOnPrimary"
+            android:alpha="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/add_folder"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="5dp"
+            android:insetRight="5dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            app:icon="@drawable/shadow_add_20dp"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="30dp"
+            app:iconTint="?attr/colorOnPrimary" />
+
+    </LinearLayout>
+
+    <!-- ViewPager2 -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tabs"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:clipChildren="true"
+        android:clipToPadding="true"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end" />
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tabsContainer"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

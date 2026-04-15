@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Evercard</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="splash_descr">This screen is for beginning of app</string>
-    <string name="all_cards">Все карты</string>
+    <string name="all_cards">Все</string>
     <string name="favorite_cards">Избранные</string>
+    <string name="cleartext">ClearText</string>
+    <string name="cardNameString">Название карты</string>
+    <string name="new_folder">Новая папка</string>
+    <string name="no_cards_found">Нет никаких карт</string>
+    <string name="add_folder">Добавление новой папки</string>
+    <string name="add_new_folder">Добавить папку</string>
 </resources>

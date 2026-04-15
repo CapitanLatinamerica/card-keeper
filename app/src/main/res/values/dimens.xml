@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="viewpager_next_item_visible">55dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">160dp</dimen>
+    <dimen name="search_progress_bar_diameter">44dp</dimen>
+    <dimen name="text_size_error_message">19sp</dimen>
+</resources>

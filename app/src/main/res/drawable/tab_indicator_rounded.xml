@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Отрицательные отступы сделают индикатор ШИРЕ текста на 8dp с каждой стороны -->
+    <item
+        android:left="-12dp"
+        android:right="-12dp"
+        android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/colorOnPrimary" />
+
+            <corners
+                android:topLeftRadius="2dp"
+                android:topRightRadius="2dp"
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+            <!-- Толщина самой линии -->
+            <size android:height="4dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -10,6 +10,7 @@ import org.koin.core.component.get
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import androidx.core.content.edit
+import org.koin.android.ext.koin.androidLogger
 
 // ============================================================
 // КОНСТАНТЫ ДЛЯ РАБОТЫ С НАСТРОЙКАМИ
@@ -109,6 +110,7 @@ class AppModule : Application(), KoinComponent {
          * Здесь мы настраиваем DI-контейнер.
          */
         startKoin {
+            androidLogger(Level.DEBUG)
             // androidContext() передаёт Koin'у контекст приложения,
             // чтобы он мог создавать Android-специфичные зависимости
             androidContext(this@AppModule)

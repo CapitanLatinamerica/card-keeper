@@ -1,0 +1,80 @@
+java/
+├── com/
+    ├── supersonic/
+        ├── evercard/
+            ├── common/
+            ├── core/
+            │   ├── navigation/
+            │   ├── utils/
+            ├── data/
+            │   ├── db/
+            │   │   ├── dao/
+            │   │   │   └── LoyaltyCardDao.kt
+            │   │   ├── entity/
+            │   │   │   └── LoyaltyCardEntity.kt
+            │   │   ├── mapper/
+            │   │   │   └── CardMapper.kt
+            │   │   ├── repository/
+            │   │   │   ├── LoyaltyCardRepository.kt
+            │   │   │   └── LoyaltyCardRepositoryImpl.kt
+            │   │   └── AppDatabase.kt
+            │   ├── repository/
+            ├── di/
+            │   ├── AppModule.kt
+            │   └── KoinModules.kt
+            ├── domain/
+            │   ├── model/
+            │   │   └── LoyaltyCard.kt
+            │   ├── that/
+            ├── features/
+            │   ├── add_edit_card/
+            │   │   ├── data/
+            │   │   ├── domain/
+            │   │   ├── ui/
+            │   │       ├── AddEditCardFragment.kt
+            │   │       ├── AddEditCardState.kt
+            │   │       └── AddEditCardViewModel.kt
+            │   ├── card_detail/
+            │   │   ├── data/
+            │   │   ├── domain/
+            │   │   ├── ui/
+            │   │       ├── CardDetailFragment.kt
+            │   │       ├── CardDetailState.kt
+            │   │       └── CardDetailViewModel.kt
+            │   ├── cards_list/
+            │   │   ├── data/
+            │   │   │   └── CardListRepository.kt
+            │   │   ├── domain/
+            │   │   │   ├── CardListInteractor.kt
+            │   │   │   └── CardListInteractorImpl.kt
+            │   │   ├── ui/
+            │   │       ├── adapters/
+            │   │       │   └── CardListAdapter.kt
+            │   │       ├── mappers/
+            │   │       ├── CardListFragment.kt
+            │   │       ├── CardListState.kt
+            │   │       └── CardListViewModel.kt
+            │   ├── root/
+            │   │   ├── adapter/
+            │   │   │   ├── CardAdapter.kt
+            │   │   │   └── MediaPagerAdapter.kt
+            │   │   ├── data/
+            │   │   │   └── DiscountCard.kt
+            │   │   ├── domain/
+            │   │   ├── ui/
+            │   │       ├── MainFragment.kt
+            │   │       ├── MainFragmentViewModel.kt
+            │   │       └── RootActivity.kt
+            │   ├── settings/
+            │   │   ├── data/
+            │   │   ├── domain/
+            │   │   ├── ui/
+            │   │       ├── SettingsFragment.kt
+            │   │       ├── SettingsState.kt
+            │   │       └── SettingsViewModel.kt
+            │   ├── splash/
+            │       ├── data/
+            │       ├── ui/
+            │           ├── SplashFragmentViewModel.kt
+            │           └── SplashScreenFragment.kt
+            ├── tools/
