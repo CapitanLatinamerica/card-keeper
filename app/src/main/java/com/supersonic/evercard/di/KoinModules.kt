@@ -43,7 +43,7 @@ val appModule = module {
     // - Базу данных (single { AppDatabase.getInstance(androidContext()) })
     viewModel { MainFragmentViewModel() }
     viewModel { CardListViewModel() }
-    viewModel { SettingsViewModel() }
+    viewModel { SettingsViewModel(get()) }
 }
 
 // ============================================================
