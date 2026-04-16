@@ -35,6 +35,9 @@ class SettingsFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+        // Наполняем кнопки графикой и текстом
+        setupModeButtons()
+
         // Наблюдаем за текущей темой
         lifecycleScope.launch {
             viewModel.currentTheme.collect { theme ->
@@ -42,7 +45,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        // Наблюдаем за режимом отображения (для будущих кнопок)
+        // Наблюдаем за режимом отображения
         lifecycleScope.launch {
             viewModel.displayMode.collect { mode ->
                 updateModeSelection(mode)
@@ -62,6 +65,36 @@ class SettingsFragment : Fragment() {
         }
     }
 
+    private fun setupModeButtons() {
+        // Кнопка "Список"
+        val listGraphic = LayoutInflater.from(requireContext())
+            .inflate(R.layout.graphic_list_mode, null)
+        binding.listModeButton.graphicContainer.removeAllViews()
+        binding.listModeButton.graphicContainer.addView(listGraphic)
+        binding.listModeButton.modeTitle.text = getString(R.string.mode_list)
+
+        // Кнопка "Карусель"
+        val carouselGraphic = LayoutInflater.from(requireContext())
+            .inflate(R.layout.graphic_carousel_mode, null)
+        binding.carouselModeButton.graphicContainer.removeAllViews()
+        binding.carouselModeButton.graphicContainer.addView(carouselGraphic)
+        binding.carouselModeButton.modeTitle.text = getString(R.string.mode_carousel)
+
+        // Получаем корневую CardView из биндинга и ставим обработчики
+        val listCardView = binding.listModeButton.root
+        val carouselCardView = binding.carouselModeButton.root
+
+        listCardView.setOnClickListener {
+            viewModel.setDisplayMode("list")
+            updateModeSelection("list")
+        }
+
+        carouselCardView.setOnClickListener {
+            viewModel.setDisplayMode("carousel")
+            updateModeSelection("carousel")
+        }
+    }
+
     private fun updateThemeSelection(theme: String) {
         when (theme) {
             "light" -> binding.radioLight.isChecked = true
@@ -71,9 +104,15 @@ class SettingsFragment : Fragment() {
     }
 
     private fun updateModeSelection(mode: String) {
-        // TODO: Обновить UI кнопок "Список" и "Карусель"
-        // binding.listModeButton.isSelected = mode == "list"
-        // binding.carouselModeButton.isSelected = mode == "carousel"
+        // Скрываем галочки у обеих кнопок
+        binding.listModeButton.checkIcon.visibility = View.GONE
+        binding.carouselModeButton.checkIcon.visibility = View.GONE
+
+        // Показываем галочку у выбранной
+        when (mode) {
+            "list" -> binding.listModeButton.checkIcon.visibility = View.VISIBLE
+            "carousel" -> binding.carouselModeButton.checkIcon.visibility = View.VISIBLE
+        }
     }
 
     override fun onDestroyView() {
