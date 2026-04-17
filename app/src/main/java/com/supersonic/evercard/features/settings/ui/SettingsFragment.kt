@@ -1,6 +1,7 @@
 package com.supersonic.evercard.features.settings.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,21 +67,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setupModeButtons() {
-        // Кнопка "Список"
-        val listGraphic = LayoutInflater.from(requireContext())
-            .inflate(R.layout.graphic_list_mode, null)
-        binding.listModeButton.graphicContainer.removeAllViews()
-        binding.listModeButton.graphicContainer.addView(listGraphic)
-        binding.listModeButton.modeTitle.text = getString(R.string.mode_list)
-
-        // Кнопка "Карусель"
-        val carouselGraphic = LayoutInflater.from(requireContext())
-            .inflate(R.layout.graphic_carousel_mode, null)
-        binding.carouselModeButton.graphicContainer.removeAllViews()
-        binding.carouselModeButton.graphicContainer.addView(carouselGraphic)
-        binding.carouselModeButton.modeTitle.text = getString(R.string.mode_carousel)
-
-        // Получаем корневую CardView из биндинга и ставим обработчики
+        // Текст уже есть в layout, устанавливаем только обработчики
         val listCardView = binding.listModeButton.root
         val carouselCardView = binding.carouselModeButton.root
 

@@ -1,12 +1,23 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
+    android:width="32dp"
+    android:height="32dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+
+    <!-- Фон карточки -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="M4,4h16v16H4V4z" />
+
+    <!-- Полоски (номер карты) -->
     <path
         android:fillColor="?attr/colorOnPrimary"
-        android:pathData="M4,4h16v16H4V4z" />
+        android:pathData="M7,9h10v2H7z" />
     <path
-        android:fillColor="?attr/colorOnSurface"
-        android:pathData="M8,9h8v1H8zM8,11h6v1H8zM8,13h8v1H8z" />
+        android:fillColor="?attr/colorOnPrimary"
+        android:pathData="M7,12h8v2H7z" />
+    <path
+        android:fillColor="?attr/colorOnPrimary"
+        android:pathData="M7,15h10v2H7z" />
+
 </vector>

@@ -38,8 +38,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
+            android:id="@+id/findBlockText"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="12dp"
             android:layout_weight="1">
 
@@ -48,6 +50,7 @@
                 android:id="@+id/findEditText"
                 style="@style/MyAwesomeEditText"
                 android:layout_width="match_parent"
+                android:layout_gravity="center_vertical"
                 android:layout_height="56dp"
                 android:hint="@string/cardNameString"
                 android:imeOptions="actionDone"
@@ -70,8 +73,11 @@
             android:id="@+id/btnSettings"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="@+id/findBlockText"
+            app:layout_constraintBottom_toBottomOf="@+id/findBlockText"
             android:background="@android:color/transparent"
-            android:contentDescription="Settings button"
+            android:contentDescription="@string/settings_button_content_descr"
             android:src="@drawable/ic_settings_16dp" />
     </LinearLayout>
 
