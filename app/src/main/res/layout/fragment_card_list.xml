@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:visibility="gone"
         android:layout_marginTop="140dp"
-        android:indeterminateTint="@color/secondary_brown_light"/>
+        android:indeterminateTint="?attr/colorOutline"/>
 
     <TextView
         android:id="@+id/errorText"
