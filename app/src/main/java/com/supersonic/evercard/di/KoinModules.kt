@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.supersonic.evercard.features.cards_list.ui.CardListViewModel
 import com.supersonic.evercard.features.root.ui.MainFragmentViewModel
+import com.supersonic.evercard.features.root.ui.MainSharedViewModel
 import com.supersonic.evercard.features.settings.ui.SettingsViewModel
 import com.supersonic.evercard.features.splash.ui.SplashFragmentViewModel
 import org.koin.android.ext.koin.androidContext
@@ -46,6 +47,7 @@ val appModule = module {
     viewModel { CardListViewModel() }
     viewModel { SettingsViewModel(get()) }
     viewModel { SplashFragmentViewModel() }
+    viewModel { MainSharedViewModel() }
 }
 
 // ============================================================

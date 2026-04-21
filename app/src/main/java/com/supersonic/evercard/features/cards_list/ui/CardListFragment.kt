@@ -1,23 +1,27 @@
 package com.supersonic.evercard.features.cards_list.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
 import com.supersonic.evercard.databinding.FragmentCardListBinding
 import com.supersonic.evercard.features.root.adapter.CardAdapter
 import com.supersonic.evercard.features.root.adapter.CarouselLayoutManager
+import com.supersonic.evercard.features.root.ui.MainSharedViewModel
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CardListFragment : Fragment() {
 
     private val viewModel: CardListViewModel by viewModel()
+    private val sharedViewModel: MainSharedViewModel by activityViewModels()
     private var _binding: FragmentCardListBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: CardAdapter
@@ -43,10 +47,23 @@ class CardListFragment : Fragment() {
         adapter = CardAdapter(emptyList())
         binding.cardsRecyclerView.adapter = adapter
 
-        // Подписка на данные из ViewModel
+        // Подписка на данные из ViewModel с учётом поискового запроса
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.cards.collectLatest { cards ->
-                updateAdapter(cards)
+            combine(
+                viewModel.allCards,
+                sharedViewModel.searchQuery
+            ) { allCards, query ->
+                Log.d("SearchDebug", "allCards: ${allCards.size}, query: '$query'")
+                if (query.isBlank()) {
+                    allCards
+                } else {
+                    allCards.filter { card ->
+                        card.name.contains(query, ignoreCase = true)
+                    }
+                }
+            }.collectLatest { filteredCards ->
+                Log.d("SearchDebug", "filteredCards: ${filteredCards.size}")
+                updateAdapter(filteredCards)
             }
         }
 

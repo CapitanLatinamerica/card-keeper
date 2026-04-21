@@ -2,12 +2,15 @@ package com.supersonic.evercard.features.root.ui
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
+    private val sharedViewModel: MainSharedViewModel by viewModel()
     private val viewModel: MainFragmentViewModel by viewModel()
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
@@ -79,6 +83,37 @@ class MainFragment : Fragment() {
                 viewModel.setCurrentTab(position)
             }
         })
+        setupSearch()
+    }
+
+    private fun setupSearch() {
+        val editText = binding.findEditText
+        val clearIcon = binding.clearTextIcon
+
+        fun updateClearButtonVisibility() {
+            clearIcon.isVisible = editText.text?.isNotEmpty() == true
+        }
+
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val query = s?.toString() ?: ""
+                Log.d("SearchDebug", "Query changed: '$query'")
+                sharedViewModel.updateSearchQuery(query)
+                updateClearButtonVisibility()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        clearIcon.setOnClickListener {
+            editText.text?.clear()
+            sharedViewModel.clearSearch()
+            updateClearButtonVisibility()
+        }
+
+        updateClearButtonVisibility()
     }
 
     override fun onDestroyView() {
@@ -97,4 +132,5 @@ class MainFragment : Fragment() {
 
         super.onCreate(savedInstanceState)
     }
+
 }
