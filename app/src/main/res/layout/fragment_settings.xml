@@ -53,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/themeHeader"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        android:backgroundTint="?attr/colorSurface"
         android:layout_marginTop="16dp">
 
         <RadioGroup
