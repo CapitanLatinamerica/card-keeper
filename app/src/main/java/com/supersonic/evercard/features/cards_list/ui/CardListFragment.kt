@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.supersonic.evercard.databinding.FragmentCardListBinding
 import com.supersonic.evercard.features.root.adapter.CardAdapter
 import com.supersonic.evercard.features.root.adapter.CarouselLayoutManager
@@ -49,21 +51,23 @@ class CardListFragment : Fragment() {
 
         // Подписка на данные из ViewModel с учётом поискового запроса
         viewLifecycleOwner.lifecycleScope.launch {
-            combine(
-                viewModel.allCards,
-                sharedViewModel.searchQuery
-            ) { allCards, query ->
-                Log.d("SearchDebug", "allCards: ${allCards.size}, query: '$query'")
-                if (query.isBlank()) {
-                    allCards
-                } else {
-                    allCards.filter { card ->
-                        card.name.contains(query, ignoreCase = true)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                combine(
+                    viewModel.allCards,
+                    sharedViewModel.searchQuery
+                ) { allCards, query ->
+                    Log.d("SearchDebug", "allCards: ${allCards.size}, query: '$query'")
+                    if (query.isBlank()) {
+                        allCards
+                    } else {
+                        allCards.filter { card ->
+                            card.name.contains(query, ignoreCase = true)
+                        }
                     }
+                }.collect { filteredCards ->
+                    Log.d("SearchDebug", "filteredCards: ${filteredCards.size}")
+                    updateAdapter(filteredCards)
                 }
-            }.collectLatest { filteredCards ->
-                Log.d("SearchDebug", "filteredCards: ${filteredCards.size}")
-                updateAdapter(filteredCards)
             }
         }
 
