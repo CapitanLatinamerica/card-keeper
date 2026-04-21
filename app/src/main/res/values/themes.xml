@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Базовая тема для всего приложения -->
-    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.OldLight" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Основные цвета -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorOnPrimary">@color/main_black</item>
@@ -22,7 +22,7 @@
     </style>
 
     <!-- Продвинутая тема -->
-    <style name="Theme.AdvancedLight" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Основные цвета -->
         <item name="colorPrimary">@color/ad_primary</item>
         <item name="colorSecondary">@color/ad_secondary</item>
@@ -66,7 +66,7 @@
         <!-- Цвет статус-бара -->
         <item name="android:statusBarColor" >@color/main_black</item>
 
-        <item name="cardTitleColor">@android:color/white</item>
+        <item name="cardTitleColor">@color/ad_on_surface</item>
 
     </style>
 

@@ -19,6 +19,9 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var listCardView: View
+    private lateinit var carouselCardView: View
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,6 +38,10 @@ class SettingsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+
+        // Инициализируем карточки кнопок
+        listCardView = binding.listModeButton.root
+        carouselCardView = binding.carouselModeButton.root
 
         // Наполняем кнопки графикой и текстом
         setupModeButtons()
@@ -91,14 +98,23 @@ class SettingsFragment : Fragment() {
     }
 
     private fun updateModeSelection(mode: String) {
+        // Сбрасываем прозрачность и галочки
+        listCardView.alpha = 1.0f
+        carouselCardView.alpha = 1.0f
         // Скрываем галочки у обеих кнопок
         binding.listModeButton.checkIcon.visibility = View.GONE
         binding.carouselModeButton.checkIcon.visibility = View.GONE
 
         // Показываем галочку у выбранной
         when (mode) {
-            "list" -> binding.listModeButton.checkIcon.visibility = View.VISIBLE
-            "carousel" -> binding.carouselModeButton.checkIcon.visibility = View.VISIBLE
+            "list" -> {
+                binding.listModeButton.checkIcon.visibility = View.VISIBLE
+                carouselCardView.alpha = 0.5f
+            }
+            "carousel" -> {
+                binding.carouselModeButton.checkIcon.visibility = View.VISIBLE
+                listCardView.alpha = 0.5f
+            }
         }
     }
 

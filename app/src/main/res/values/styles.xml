@@ -11,8 +11,8 @@
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">50</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/secondary_grey</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColorHint">?attr/colorSecondary</item>
         <item name="android:background">@drawable/rounded_edittext</item>
         <item name="android:textCursorDrawable">@drawable/cursor</item>
     </style>
@@ -47,13 +47,13 @@
         <item name="tabPaddingEnd">16dp</item>
 
         <!-- Индикатор -->
-        <item name="tabIndicatorColor">?attr/colorOnPrimary</item>
+        <item name="tabIndicatorColor">?attr/colorOnPrimaryContainer</item>
         <item name="tabIndicatorHeight">8dp</item>
         <item name="tabIndicatorGravity">bottom</item>
 
         <!-- Цвета текста -->
-        <item name="tabTextColor">@color/text_dark_gray</item>
-        <item name="tabSelectedTextColor">?attr/colorOnPrimary</item>
+        <item name="tabTextColor">?attr/colorSecondary</item>
+        <item name="tabSelectedTextColor">?attr/colorOnPrimaryContainer</item>
 
         <!-- Шрифт и регистр -->
         <item name="textAllCaps">false</item>
@@ -98,10 +98,10 @@
     </style>
 
     <style name="MyAwesomeToolbar">
-        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:background">?attr/colorPrimaryContainer</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:layout_width">0dp</item>
-        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="titleTextColor">?attr/colorOnPrimaryContainer</item>
         <item name="titleTextAppearance">@style/TextMedium22</item>
         <item name="navigationIcon">@drawable/tb_arrow_back</item>
     </style>

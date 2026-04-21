@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/colorPrimaryContainer"
     android:padding="16dp"
     tools:context=".features.settings.ui.SettingsFragment">
 
@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="?attr/colorOnPrimaryContainer"
         android:text="@string/theme_header"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@id/guidelineStart" />
@@ -53,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/themeHeader"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        android:backgroundTint="?attr/colorSurface"
+        android:backgroundTint="?attr/colorTertiaryContainer"
         android:layout_marginTop="16dp">
 
         <RadioGroup
@@ -66,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_light"
+                android:textColor="?attr/colorOnTertiaryContainer"
                 android:padding="16dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -73,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_dark"
+                android:textColor="?attr/colorOnTertiaryContainer"
                 android:padding="16dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -80,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_carnival"
+                android:textColor="?attr/colorOnTertiaryContainer"
                 android:padding="16dp" />
 
         </RadioGroup>
@@ -92,6 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="?attr/colorOnPrimaryContainer"
         android:text="@string/mode_header"
         app:layout_constraintTop_toBottomOf="@+id/themeCardView"
         app:layout_constraintStart_toStartOf="@id/guidelineStart" />

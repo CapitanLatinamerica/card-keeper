@@ -11,6 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorTertiaryContainer"
         android:padding="12dp">
 
         <!-- Три вертикальных прямоугольника (маленький-большой-маленький) -->
@@ -29,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <!-- 1 -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.8"
@@ -38,19 +39,20 @@
                 android:layout_marginEnd="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="0dp"
-                android:backgroundTint="?attr/colorOnTertiary">
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorPrimary"
+                android:backgroundTint="?attr/colorOnTertiaryContainer">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_card_type_example"
-                    android:scaleType="center"
-                    app:tint="?attr/colorPrimary" />
+                    android:scaleType="center" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- 2 -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2.5"
@@ -58,19 +60,20 @@
                 android:layout_marginBottom="2dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                android:backgroundTint="?attr/colorOnTertiary">
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorPrimary"
+                android:backgroundTint="?attr/colorOnTertiaryContainer">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_card_type_example"
-                    android:scaleType="center"
-                    app:tint="?attr/colorPrimary" />
+                    android:scaleType="center" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- 3 -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.8"
@@ -79,16 +82,17 @@
                 android:layout_marginEnd="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="0dp"
-                android:backgroundTint="?attr/colorOnTertiary">
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorPrimary"
+                android:backgroundTint="?attr/colorOnTertiaryContainer">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_card_type_example"
-                    android:scaleType="center"
-                    app:tint="?attr/colorPrimary" />
+                    android:scaleType="center" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
@@ -118,7 +122,7 @@
                 android:text="@string/mode_carousel"
                 android:textSize="16sp"
                 android:fontFamily="@font/ys_display_medium"
-                android:textColor="?attr/colorOnPrimaryContainer" />
+                android:textColor="?attr/colorOnTertiaryContainer" />
 
         </LinearLayout>
 

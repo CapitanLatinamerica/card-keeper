@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Тёмная тема для всего приложения -->
-    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.OldDark" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Основные цвета для тёмной темы -->
         <item name="colorPrimary">@color/main_black</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -18,6 +18,55 @@
         <item name="android:statusBarColor">@color/main_black</item>
 
         <item name="cardTitleColor">@color/main_black</item>
+    </style>
+
+    <!-- Тёмная версия Advanced темы -->
+    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Основные цвета (из тёмной палитры) -->
+        <item name="colorPrimary">@color/Nad_primary</item>
+        <item name="colorSecondary">@color/Nad_secondary</item>
+        <item name="colorTertiary">@color/Nad_tertiary</item>
+        <item name="colorError">@color/Nad_error</item>
+
+        <item name="colorOnPrimary">@color/Nad_on_primary</item>
+        <item name="colorOnSecondary">@color/Nad_on_secondary</item>
+        <item name="colorOnTertiary">@color/Nad_on_tertiary</item>
+        <item name="colorOnError">@color/Nad_on_error</item>
+
+        <item name="colorPrimaryContainer">@color/Nad_primary_container</item>
+        <item name="colorSecondaryContainer">@color/Nad_secondary_container</item>
+        <item name="colorTertiaryContainer">@color/Nad_tertiary_container</item>
+        <item name="colorErrorContainer">@color/Nad_error_container</item>
+
+        <item name="colorOnPrimaryContainer">@color/Nad_on_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/Nad_on_secondary_container</item>
+        <item name="colorOnTertiaryContainer">@color/Nad_on_tertiary_container</item>
+        <item name="colorOnErrorContainer">@color/Nad_on_error_container</item>
+
+        <item name="colorSurfaceDim">@color/Nad_surface_dim</item>
+        <item name="colorSurface">@color/Nad_surface</item>
+        <item name="colorSurfaceBright">@color/Nad_surface_bright</item>
+
+        <item name="colorOnSurface">@color/Nad_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/Nad_on_surface_variant</item>
+        <item name="colorOutline">@color/Nad_outline</item>
+        <item name="colorOutlineVariant">@color/Nad_outline_variant</item>
+
+        <item name="colorSurfaceContainerLowest">@color/Nad_surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/Nad_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/Nad_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/Nad_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/Nad_surface_container_highest</item>
+
+        <item name="colorSurfaceInverse">@color/Nad_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/Nad_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/Nad_inverse_primary</item>
+
+        <!-- Цвет статус-бара -->
+        <item name="android:statusBarColor">@color/Nad_surface</item>
+
+        <!-- Цвет заголовка карточки -->
+        <item name="cardTitleColor">@color/Nad_on_surface</item>
     </style>
 
 </resources>

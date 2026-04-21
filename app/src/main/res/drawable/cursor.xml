@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!-- Цвет указателя -->
-    <solid android:color="@color/cursor_color" />
+    <solid android:color="?attr/colorSecondary" />
     <!-- Прозрачный фон вокруг указателя -->
     <size android:width="2dp" />
 </shape>
