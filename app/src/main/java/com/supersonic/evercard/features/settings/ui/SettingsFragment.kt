@@ -69,6 +69,13 @@ class SettingsFragment : Fragment() {
                 else -> "light"
             }
             viewModel.saveThemeOnly(theme)  // Новый метод, только сохранение
+
+            // Применяем кастомную тему (если нужно)
+            when (theme) {
+                "carnival" -> requireActivity().setTheme(R.style.Theme_Evercard_Carnival)
+                else -> { /* темы из AppCompatDelegate уже применяются в AppModule и RootActivity */ }
+            }
+
             requireActivity().recreate()   // Пересоздаём Activity
         }
     }

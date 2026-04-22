@@ -73,46 +73,46 @@
     <!-- Карнавал тема (светлая версия) -->
     <style name="Theme.Evercard.Carnival" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Пока копия Advanced Light -->
-        <item name="colorPrimary">@color/dc_primary</item>
-        <item name="colorSecondary">@color/dc_secondary</item>
-        <item name="colorTertiary">@color/dc_tertiary</item>
-        <item name="colorError">@color/dc_error</item>
+        <item name="colorPrimary">@color/carn_primary</item>
+        <item name="colorSecondary">@color/carn_secondary</item>
+        <item name="colorTertiary">@color/carn_tertiary</item>
+        <item name="colorError">@color/carn_error</item>
 
-        <item name="colorOnPrimary">@color/dc_on_primary</item>
-        <item name="colorOnSecondary">@color/dc_on_secondary</item>
-        <item name="colorOnTertiary">@color/dc_on_tertiary</item>
-        <item name="colorOnError">@color/dc_on_error</item>
+        <item name="colorOnPrimary">@color/carn_on_primary</item>
+        <item name="colorOnSecondary">@color/carn_on_secondary</item>
+        <item name="colorOnTertiary">@color/carn_on_tertiary</item>
+        <item name="colorOnError">@color/carn_on_error</item>
 
-        <item name="colorPrimaryContainer">@color/dc_primary_container</item>
-        <item name="colorSecondaryContainer">@color/dc_secondary_container</item>
-        <item name="colorTertiaryContainer">@color/dc_tertiary_container</item>
-        <item name="colorErrorContainer">@color/dc_error_container</item>
+        <item name="colorPrimaryContainer">@color/carn_primary_container</item>
+        <item name="colorSecondaryContainer">@color/carn_secondary_container</item>
+        <item name="colorTertiaryContainer">@color/carn_tertiary_container</item>
+        <item name="colorErrorContainer">@color/carn_error_container</item>
 
-        <item name="colorOnPrimaryContainer">@color/dc_on_primary_container</item>
-        <item name="colorOnSecondaryContainer">@color/dc_on_secondary_container</item>
-        <item name="colorOnTertiaryContainer">@color/dc_on_tertiary_container</item>
-        <item name="colorOnErrorContainer">@color/dc_on_error_container</item>
+        <item name="colorOnPrimaryContainer">@color/carn_on_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/carn_on_secondary_container</item>
+        <item name="colorOnTertiaryContainer">@color/carn_on_tertiary_container</item>
+        <item name="colorOnErrorContainer">@color/carn_on_error_container</item>
 
-        <item name="colorSurfaceDim">@color/dc_surface_dim</item>
-        <item name="colorSurface">@color/dc_surface</item>
-        <item name="colorSurfaceBright">@color/dc_surface_bright</item>
+        <item name="colorSurfaceDim">@color/carn_surface_dim</item>
+        <item name="colorSurface">@color/carn_surface</item>
+        <item name="colorSurfaceBright">@color/carn_surface_bright</item>
 
-        <item name="colorOnSurface">@color/dc_on_surface</item>
-        <item name="colorOnSurfaceVariant">@color/dc_on_surface_variant</item>
-        <item name="colorOutline">@color/dc_outline</item>
-        <item name="colorOutlineVariant">@color/dc_outline_variant</item>
+        <item name="colorOnSurface">@color/carn_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/carn_on_surface_variant</item>
+        <item name="colorOutline">@color/carn_outline</item>
+        <item name="colorOutlineVariant">@color/carn_outline_variant</item>
 
-        <item name="colorSurfaceContainerLowest">@color/dc_surface_container_lowest</item>
-        <item name="colorSurfaceContainerLow">@color/dc_surface_container_low</item>
-        <item name="colorSurfaceContainer">@color/dc_surface_container</item>
-        <item name="colorSurfaceContainerHigh">@color/dc_surface_container_high</item>
-        <item name="colorSurfaceContainerHighest">@color/dc_surface_container_highest</item>
+        <item name="colorSurfaceContainerLowest">@color/carn_surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/carn_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/carn_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/carn_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/carn_surface_container_highest</item>
 
-        <item name="colorSurfaceInverse">@color/dc_inverse_surface</item>
-        <item name="colorOnSurfaceInverse">@color/dc_inverse_on_surface</item>
-        <item name="colorPrimaryInverse">@color/dc_inverse_primary</item>
+        <item name="colorSurfaceInverse">@color/carn_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/carn_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/carn_inverse_primary</item>
 
-        <item name="android:statusBarColor">@color/dc_surface</item>
-        <item name="cardTitleColor">@color/dc_on_surface</item>
+        <item name="android:statusBarColor">@color/carn_surface</item>
+        <item name="cardTitleColor">@color/carn_on_surface</item>
     </style>
 </resources>

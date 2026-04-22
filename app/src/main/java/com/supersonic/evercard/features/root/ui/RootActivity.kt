@@ -1,5 +1,6 @@
 package com.supersonic.evercard.features.root.ui
 
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,14 @@ class RootActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         applySavedTheme()
+        val prefs = get<SharedPreferences>()
+        val savedTheme = prefs.getString("app_theme", "light") ?: "light"
+
+        when (savedTheme) {
+            "carnival" -> setTheme(R.style.Theme_Evercard_Carnival)
+            // "light" и "dark" не требуют setTheme, они управляются через AppCompatDelegate
+            else -> { /* стандартная тема из манифеста */ }
+        }
         super.onCreate(savedInstanceState)
         binding = ActivityRootBinding.inflate(layoutInflater)
         setContentView(binding.root)

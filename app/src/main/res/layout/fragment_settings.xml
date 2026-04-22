@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorPrimaryContainer"
+    android:background="?attr/colorSurface"
     android:padding="16dp"
     tools:context=".features.settings.ui.SettingsFragment">
 
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:iconTint="?attr/colorSecondary"
+        app:iconTint="?attr/colorOnSurface"
         app:title="@string/settings_header" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textColor="?attr/colorOnSurface"
         android:text="@string/theme_header"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@id/guidelineStart" />
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/themeHeader"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        android:backgroundTint="?attr/colorTertiaryContainer"
+        android:backgroundTint="?attr/colorPrimaryContainer"
         android:layout_marginTop="16dp">
 
         <RadioGroup
@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_light"
-                android:textColor="?attr/colorOnTertiaryContainer"
+                android:textColor="?attr/colorOnPrimaryContainer"
                 android:padding="16dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_dark"
-                android:textColor="?attr/colorOnTertiaryContainer"
+                android:textColor="?attr/colorOnPrimaryContainer"
                 android:padding="16dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_carnival"
-                android:textColor="?attr/colorOnTertiaryContainer"
+                android:textColor="?attr/colorOnPrimaryContainer"
                 android:padding="16dp" />
 
         </RadioGroup>
@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textColor="?attr/colorOnSurface"
         android:text="@string/mode_header"
         app:layout_constraintTop_toBottomOf="@+id/themeCardView"
         app:layout_constraintStart_toStartOf="@id/guidelineStart" />

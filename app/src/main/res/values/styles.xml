@@ -4,6 +4,7 @@
     <!-- ========== БАЗОВЫЕ СТИЛИ ========== -->
     <style name="BaseEditTextStyle">
         <item name="android:drawableStart">@drawable/ic_find</item>
+        <item name="android:startColor">?attr/colorError</item>
         <item name="android:paddingStart">12dp</item>
         <item name="android:paddingEnd">4dp</item>
         <item name="android:drawablePadding">10dp</item>
@@ -11,8 +12,8 @@
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">50</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:textColorHint">?attr/colorSecondary</item>
+        <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
+        <item name="android:textColorHint">?attr/colorPrimary</item>
         <item name="android:background">@drawable/rounded_edittext</item>
         <item name="android:textCursorDrawable">@drawable/cursor</item>
     </style>
@@ -47,13 +48,13 @@
         <item name="tabPaddingEnd">16dp</item>
 
         <!-- Индикатор -->
-        <item name="tabIndicatorColor">?attr/colorOnPrimaryContainer</item>
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
         <item name="tabIndicatorHeight">8dp</item>
         <item name="tabIndicatorGravity">bottom</item>
 
         <!-- Цвета текста -->
-        <item name="tabTextColor">?attr/colorSecondary</item>
-        <item name="tabSelectedTextColor">?attr/colorOnPrimaryContainer</item>
+        <item name="tabTextColor">?attr/colorOutline</item>
+        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
 
         <!-- Шрифт и регистр -->
         <item name="textAllCaps">false</item>
@@ -98,13 +99,13 @@
     </style>
 
     <style name="MyAwesomeToolbar">
-        <item name="android:background">?attr/colorPrimaryContainer</item>
+        <item name="android:background">?attr/colorSurface</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:layout_width">0dp</item>
-        <item name="titleTextColor">?attr/colorOnPrimaryContainer</item>
+        <item name="titleTextColor">?attr/colorOnSurface</item>
         <item name="titleTextAppearance">@style/TextMedium22</item>
         <item name="navigationIcon">@drawable/tb_arrow_back</item>
-        <item name="navigationIconTint">?attr/colorOnPrimaryContainer</item>
+        <item name="navigationIconTint">?attr/colorOnSurface</item>
     </style>
 
     <!-- стиль текста Medium22-->
@@ -140,7 +141,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:scaleType">center</item>
         <item name="android:src">@drawable/ic_card_type_example</item>
-        <item name="android:tint">?attr/colorOnTertiary</item>
+        <item name="android:tint">?attr/colorTertiaryContainer</item>
     </style>
 
 </resources>

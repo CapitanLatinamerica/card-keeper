@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimaryContainer"
+    android:background="?attr/colorSurface"
     tools:context=".features.root.ui.MainFragment">
 
     <!-- Горизонтальные направляющие (отступы 16dp) -->
@@ -78,7 +78,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/findBlockText"
             android:background="@android:color/transparent"
             android:contentDescription="@string/settings_button_content_descr"
-            app:iconTint="?attr/colorSecondary"
+            android:tint="?attr/colorPrimary"
             android:src="@drawable/ic_settings_16dp" />
     </LinearLayout>
 
@@ -123,7 +123,8 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             app:icon="@drawable/shadow_add_20dp"
-            app:iconTint="?attr/colorSecondary"
+            app:iconTint="?attr/colorPrimary"
+            android:tint="?attr/colorPrimary"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:iconSize="30dp"/>
