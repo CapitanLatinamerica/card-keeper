@@ -110,4 +110,84 @@
     <color name="Nad_inverse_on_surface">#2e3036</color>
     <color name="Nad_inverse_primary">#415f91</color>
 
+    <!-- Цвета из КРАСИЬО SWET)))) -->
+    <color name="carn_primary">#4f0061</color>
+    <color name="carn_secondary">#00340d</color>
+    <color name="carn_tertiary">#002b5c</color>
+    <color name="carn_error">#4a2000</color>
+
+    <color name="carn_on_primary">#ffffff</color>
+    <color name="carn_on_secondary">#ffffff</color>
+    <color name="carn_on_tertiary">#ffffff</color>
+    <color name="carn_on_error">#ffffff</color>
+
+    <color name="carn_primary_container">#7e0098</color>
+    <color name="carn_secondary_container">#00561b</color>
+    <color name="carn_tertiary_container">#004891</color>
+    <color name="carn_error_container">#773700</color>
+
+    <color name="carn_on_primary_container">#ffffff</color>
+    <color name="carn_on_secondary_container">#ffffff</color>
+    <color name="carn_on_tertiary_container">#ffffff</color>
+    <color name="carn_on_error_container">#ffffff</color>
+
+    <color name="carn_surface_dim">#bab8b9</color>
+    <color name="carn_surface">#fbf9f9</color>
+    <color name="carn_surface_bright">#fbf9f9</color>
+
+    <color name="carn_on_surface">#000000</color>
+    <color name="carn_on_surface_variant">#000000</color>
+    <color name="carn_outline">#362738</color>
+    <color name="carn_outline_variant">#554356</color>
+
+    <color name="carn_surface_container_lowest">#ffffff</color>
+    <color name="carn_surface_container_low">#f3f0f0</color>
+    <color name="carn_surface_container">#e4e2e2</color>
+    <color name="carn_surface_container_high">#d6d4d4</color>
+    <color name="carn_surface_container_highest">#c8c6c6</color>
+
+    <color name="carn_inverse_surface">#303031</color>
+    <color name="carn_inverse_on_surface">#ffffff</color>
+    <color name="carn_inverse_primary">#f5adff</color>
+
+    <!-- Цвета из КРАСИЬО SWET)))) -->
+    <color name="dc_primary">#ffeafd</color>
+    <color name="dc_secondary">#c3ffc0</color>
+    <color name="dc_tertiary">#ebf0ff</color>
+    <color name="dc_error">#ffece3</color>
+
+    <color name="dc_on_primary">#000000</color>
+    <color name="dc_on_secondary">#000000</color>
+    <color name="dc_on_tertiary">#000000</color>
+    <color name="dc_on_error">#000000</color>
+
+    <color name="dc_primary_container">#f4a7ff</color>
+    <color name="dc_secondary_container">#00ee5a</color>
+    <color name="dc_tertiary_container">#a3c3ff</color>
+    <color name="dc_error_container">#ffb17e</color>
+
+    <color name="dc_on_primary_container">#1a0022</color>
+    <color name="dc_on_secondary_container">#002006</color>
+    <color name="dc_on_tertiary_container">#000b20</color>
+    <color name="dc_on_error_container">#180700</color>
+
+    <color name="dc_surface_dim">#131314</color>
+    <color name="dc_surface">#131314</color>
+    <color name="dc_surface_bright">#505050</color>
+
+    <color name="dc_on_surface">#ffffff</color>
+    <color name="dc_on_surface_variant">#ffffff</color>
+    <color name="dc_outline">#ffeafd</color>
+    <color name="dc_outline_variant">#d3bbd2</color>
+
+    <color name="dc_surface_container_lowest">#000000</color>
+    <color name="dc_surface_container_low">#1f2020</color>
+    <color name="dc_surface_container">#303031</color>
+    <color name="dc_surface_container_high">#3b3b3c</color>
+    <color name="dc_surface_container_highest">#474747</color>
+
+    <color name="dc_inverse_surface">#e4e2e2</color>
+    <color name="dc_inverse_on_surface">#000000</color>
+    <color name="dc_inverse_primary">#7c0096</color>
+
 </resources>

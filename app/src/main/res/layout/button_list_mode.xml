@@ -43,10 +43,8 @@
                 android:backgroundTint="?attr/colorOnTertiaryContainer">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_card_type_example"
-                    android:scaleType="center"/>
+                    style="@style/ModeButtonIcon"
+                    app:iconTint="?attr/colorOnTertiary" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -63,10 +61,7 @@
                 android:backgroundTint="?attr/colorOnTertiaryContainer">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_card_type_example"
-                    android:scaleType="center"/>
+                    style="@style/ModeButtonIcon" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -82,10 +77,7 @@
                 android:backgroundTint="?attr/colorOnTertiaryContainer">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_card_type_example"
-                    android:scaleType="center"/>
+                    style="@style/ModeButtonIcon" />
 
             </com.google.android.material.card.MaterialCardView>
 

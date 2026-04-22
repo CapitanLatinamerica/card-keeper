@@ -104,6 +104,7 @@
         <item name="titleTextColor">?attr/colorOnPrimaryContainer</item>
         <item name="titleTextAppearance">@style/TextMedium22</item>
         <item name="navigationIcon">@drawable/tb_arrow_back</item>
+        <item name="navigationIconTint">?attr/colorOnPrimaryContainer</item>
     </style>
 
     <!-- стиль текста Medium22-->
@@ -133,5 +134,13 @@
         <item name="fontWeight">500</item>
     </style>
 
+    <!-- Стиль для иконки примера карточки в кнопках режимов -->
+    <style name="ModeButtonIcon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:src">@drawable/ic_card_type_example</item>
+        <item name="android:tint">?attr/colorOnTertiary</item>
+    </style>
 
 </resources>
