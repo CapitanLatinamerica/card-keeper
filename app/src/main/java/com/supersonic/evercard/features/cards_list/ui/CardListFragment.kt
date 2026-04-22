@@ -56,7 +56,7 @@ class CardListFragment : Fragment() {
                     viewModel.allCards,
                     sharedViewModel.searchQuery
                 ) { allCards, query ->
-                    Log.d("SearchDebug", "allCards: ${allCards.size}, query: '$query'")
+                    Log.d("SearchDebug", "COMBINE TRIGGERED: allCards=${allCards.size}, query='$query'")  // 👈 ЭТОТ ЛОГ
                     if (query.isBlank()) {
                         allCards
                     } else {

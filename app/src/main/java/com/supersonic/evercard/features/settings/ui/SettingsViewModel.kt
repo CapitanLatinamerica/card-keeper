@@ -34,6 +34,13 @@ class SettingsViewModel(
         }
     }
 
+    fun saveThemeOnly(theme: String) {
+        viewModelScope.launch {
+            _currentTheme.value = theme
+            saveTheme(theme)
+        }
+    }
+
     fun setDisplayMode(mode: String) {
         viewModelScope.launch {
             _displayMode.value = mode

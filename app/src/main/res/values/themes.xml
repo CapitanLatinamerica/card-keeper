@@ -70,4 +70,49 @@
 
     </style>
 
+    <!-- Карнавал тема (светлая версия) -->
+    <style name="Theme.Evercard.Carnival" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Пока копия Advanced Light -->
+        <item name="colorPrimary">@color/ad_primary</item>
+        <item name="colorSecondary">@color/ad_secondary</item>
+        <item name="colorTertiary">@color/ad_tertiary</item>
+        <item name="colorError">@color/ad_error</item>
+
+        <item name="colorOnPrimary">@color/ad_on_primary</item>
+        <item name="colorOnSecondary">@color/ad_on_secondary</item>
+        <item name="colorOnTertiary">@color/ad_on_tertiary</item>
+        <item name="colorOnError">@color/ad_on_error</item>
+
+        <item name="colorPrimaryContainer">@color/ad_primary_container</item>
+        <item name="colorSecondaryContainer">@color/ad_secondary_container</item>
+        <item name="colorTertiaryContainer">@color/ad_tertiary_container</item>
+        <item name="colorErrorContainer">@color/ad_error_container</item>
+
+        <item name="colorOnPrimaryContainer">@color/ad_on_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/ad_on_secondary_container</item>
+        <item name="colorOnTertiaryContainer">@color/ad_on_tertiary_container</item>
+        <item name="colorOnErrorContainer">@color/ad_on_error_container</item>
+
+        <item name="colorSurfaceDim">@color/ad_surface_dim</item>
+        <item name="colorSurface">@color/ad_surface</item>
+        <item name="colorSurfaceBright">@color/ad_surface_bright</item>
+
+        <item name="colorOnSurface">@color/ad_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/ad_on_surface_variant</item>
+        <item name="colorOutline">@color/ad_outline</item>
+        <item name="colorOutlineVariant">@color/ad_outline_variant</item>
+
+        <item name="colorSurfaceContainerLowest">@color/ad_surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/ad_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/ad_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/ad_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/ad_surface_container_highest</item>
+
+        <item name="colorSurfaceInverse">@color/ad_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/ad_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/ad_inverse_primary</item>
+
+        <item name="android:statusBarColor">@color/ad_surface</item>
+        <item name="cardTitleColor">@color/ad_on_surface</item>
+    </style>
 </resources>

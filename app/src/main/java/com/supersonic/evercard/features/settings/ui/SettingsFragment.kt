@@ -68,8 +68,8 @@ class SettingsFragment : Fragment() {
                 R.id.radioCarnival -> "carnival"
                 else -> "light"
             }
-            viewModel.setTheme(theme)
-            requireActivity().recreate() // Пересоздаём Activity для применения темы
+            viewModel.saveThemeOnly(theme)  // Новый метод, только сохранение
+            requireActivity().recreate()   // Пересоздаём Activity
         }
     }
 

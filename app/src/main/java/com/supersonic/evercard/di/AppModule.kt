@@ -22,11 +22,6 @@ import org.koin.android.ext.koin.androidLogger
  */
 const val PREFERENCE_NAME = "user_preferences"
 
-/**
- * Ключ, по которому в SharedPreferences будет храниться информация о выбранной теме.
- * Значение будет булевым: true = темная тема, false = светлая.
- */
-const val PREFERENCE_THEME_KEY = "is_dark_theme_enabled"
 
 // ============================================================
 // ЗАКРЫТЫЙ КЛАСС ДЛЯ ТИПИЗАЦИИ ТЕМ (Type-Safe подход)
@@ -141,15 +136,11 @@ class AppModule : Application(), KoinComponent {
          * Важно: это работает, потому что мы уже вызвали startKoin выше.
          */
         val preferences: SharedPreferences = get()
+        val savedTheme = preferences.getString("app_theme", "light") ?: "light"
+        val isDarkTheme = savedTheme == "dark" || savedTheme == "carnival"
 
         /**
-         * Читаем булево значение из настроек. Если ключ ещё не существует,
-         * используем false (светлая тема) как значение по умолчанию.
-         */
-        val isDarkTheme = preferences.getBoolean(PREFERENCE_THEME_KEY, false)
-
-        /**
-         * Преобразуем булево значение в объект ThemeMode (Light или Dark).
+         * Преобразуем булево значение в объект ThemeMode.
          */
         currentTheme = ThemeMode.fromBoolean(isDarkTheme)
 
@@ -161,35 +152,4 @@ class AppModule : Application(), KoinComponent {
         AppCompatDelegate.setDefaultNightMode(currentTheme.mode)
     }
 
-    // ============================================================
-    // МЕТОД ДЛЯ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ (ВЫЗЫВАЕТСЯ ИЗ НАСТРОЕК)
-    // ============================================================
-
-    /**
-     * Публичный метод для переключения темы во время работы приложения.
-     * Обычно вызывается из SettingsFragment или SettingsViewModel.
-     *
-     * @param isDarkTheme true — включить тёмную тему, false — светлую
-     */
-    fun switchTheme(isDarkTheme: Boolean) {
-        // Получаем SharedPreferences из DI (каждый раз, чтобы быть уверенными в актуальности)
-        val preferences: SharedPreferences = get()
-
-        /**
-         * Сохраняем новое значение темы в SharedPreferences.
-         * edit() открывает редактор, putBoolean() кладёт значение, apply() сохраняет асинхронно.
-         */
-        preferences.edit { putBoolean(PREFERENCE_THEME_KEY, isDarkTheme) }
-
-        // Обновляем текущую тему в памяти
-        currentTheme = ThemeMode.fromBoolean(isDarkTheme)
-
-        /**
-         * Применяем новую тему глобально.
-         * Важно: это изменит тему только для новых Activity.
-         * Текущая Activity может не обновиться автоматически — нужно будет пересоздать её
-         * или обработать изменение внутри неё.
-         */
-        AppCompatDelegate.setDefaultNightMode(currentTheme.mode)
-    }
 }
