@@ -2,6 +2,7 @@ package com.supersonic.evercard.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.supersonic.evercard.features.add_edit_card.ui.AddEditCardViewModel
 import com.supersonic.evercard.features.cards_list.ui.CardListViewModel
 import com.supersonic.evercard.features.root.ui.MainFragmentViewModel
 import com.supersonic.evercard.features.root.ui.MainSharedViewModel
@@ -48,6 +49,7 @@ val appModule = module {
     viewModel { SettingsViewModel(get()) }
     viewModel { SplashFragmentViewModel() }
     viewModel { MainSharedViewModel() }
+    //viewModel { AddEditCardViewModel() }
 }
 
 // ============================================================

@@ -13,11 +13,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.supersonic.evercard.R
 import com.supersonic.evercard.databinding.FragmentMainBinding
 import com.supersonic.evercard.features.root.adapter.MediaPagerAdapter
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -41,7 +43,6 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val isDarkMode = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
-        Log.d("ThemeTest", "Тёмная тема включена: $isDarkMode")
 
         // Восстанавливаем сохранённую позицию таба
         savedInstanceState?.getInt("current_tab")?.let {
@@ -75,6 +76,10 @@ class MainFragment : Fragment() {
 
         binding.btnSettings.setOnClickListener {
             findNavController().navigate(R.id.settingsFragment)
+        }
+
+        binding.btnAddCard.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_addEditCardFragment)
         }
 
         // Сохраняем позицию таба при переключении
