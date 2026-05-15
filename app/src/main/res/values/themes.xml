@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Базовая тема для всего приложения -->
-    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.OldLight" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Основные цвета -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorOnPrimary">@color/main_black</item>
@@ -12,7 +12,7 @@
         <item name="colorPrimaryContainer">@color/secondary_light</item>
         <item name="colorOnPrimaryContainer">@color/main_blue</item>
         <item name="colorTertiary">@color/secondary_blue_light</item>
-        <item name="colorOnTertiary">@color/main_carrot</item>
+        <item name="colorOnTertiary">@color/purple_700</item>
 
         <!-- Цвет статус-бара -->
         <item name="android:statusBarColor" >@color/main_black</item>
@@ -21,4 +21,98 @@
 
     </style>
 
+    <!-- Продвинутая тема -->
+    <style name="Theme.Evercard" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Основные цвета -->
+        <item name="colorPrimary">@color/ad_primary</item>
+        <item name="colorSecondary">@color/ad_secondary</item>
+        <item name="colorTertiary">@color/ad_tertiary</item>
+        <item name="colorError">@color/ad_error</item>
+
+        <item name="colorOnPrimary">@color/ad_on_primary</item>
+        <item name="colorOnSecondary">@color/ad_on_secondary</item>
+        <item name="colorOnTertiary">@color/ad_on_tertiary</item>
+        <item name="colorOnError">@color/ad_on_error</item>
+
+        <item name="colorPrimaryContainer">@color/ad_primary_container</item>
+        <item name="colorSecondaryContainer">@color/ad_secondary_container</item>
+        <item name="colorTertiaryContainer">@color/ad_tertiary_container</item>
+        <item name="colorErrorContainer">@color/ad_error_container</item>
+
+        <item name="colorOnPrimaryContainer">@color/ad_on_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/ad_on_secondary_container</item>
+        <item name="colorOnTertiaryContainer">@color/ad_on_tertiary_container</item>
+        <item name="colorOnErrorContainer">@color/ad_on_error_container</item>
+
+        <item name="colorSurfaceDim">@color/ad_surface_dim</item>
+        <item name="colorSurface">@color/ad_surface</item>
+        <item name="colorSurfaceBright">@color/ad_surface_bright</item>
+
+        <item name="colorOnSurface">@color/ad_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/ad_on_surface_variant</item>
+        <item name="colorOutline">@color/ad_outline</item>
+        <item name="colorOutlineVariant">@color/ad_outline_variant</item>
+
+        <item name="colorSurfaceContainerLowest">@color/ad_surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/ad_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/ad_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/ad_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/ad_surface_container_highest</item>
+
+        <item name="colorSurfaceInverse">@color/ad_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/ad_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/ad_inverse_primary</item>
+
+        <!-- Цвет статус-бара -->
+        <item name="android:statusBarColor" >@color/main_black</item>
+
+        <item name="cardTitleColor">@color/ad_on_surface</item>
+
+    </style>
+
+    <!-- Карнавал тема (светлая версия) -->
+    <style name="Theme.Evercard.Carnival" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Пока копия Advanced Light -->
+        <item name="colorPrimary">@color/carn_primary</item>
+        <item name="colorSecondary">@color/carn_secondary</item>
+        <item name="colorTertiary">@color/carn_tertiary</item>
+        <item name="colorError">@color/carn_error</item>
+
+        <item name="colorOnPrimary">@color/carn_on_primary</item>
+        <item name="colorOnSecondary">@color/carn_on_secondary</item>
+        <item name="colorOnTertiary">@color/carn_on_tertiary</item>
+        <item name="colorOnError">@color/carn_on_error</item>
+
+        <item name="colorPrimaryContainer">@color/carn_primary_container</item>
+        <item name="colorSecondaryContainer">@color/carn_secondary_container</item>
+        <item name="colorTertiaryContainer">@color/carn_tertiary_container</item>
+        <item name="colorErrorContainer">@color/carn_error_container</item>
+
+        <item name="colorOnPrimaryContainer">@color/carn_on_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/carn_on_secondary_container</item>
+        <item name="colorOnTertiaryContainer">@color/carn_on_tertiary_container</item>
+        <item name="colorOnErrorContainer">@color/carn_on_error_container</item>
+
+        <item name="colorSurfaceDim">@color/carn_surface_dim</item>
+        <item name="colorSurface">@color/carn_surface</item>
+        <item name="colorSurfaceBright">@color/carn_surface_bright</item>
+
+        <item name="colorOnSurface">@color/carn_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/carn_on_surface_variant</item>
+        <item name="colorOutline">@color/carn_outline</item>
+        <item name="colorOutlineVariant">@color/carn_outline_variant</item>
+
+        <item name="colorSurfaceContainerLowest">@color/carn_surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/carn_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/carn_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/carn_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/carn_surface_container_highest</item>
+
+        <item name="colorSurfaceInverse">@color/carn_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/carn_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/carn_inverse_primary</item>
+
+        <item name="android:statusBarColor">@color/carn_surface</item>
+        <item name="cardTitleColor">@color/carn_on_surface</item>
+    </style>
 </resources>

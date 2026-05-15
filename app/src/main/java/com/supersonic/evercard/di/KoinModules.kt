@@ -2,8 +2,12 @@ package com.supersonic.evercard.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.supersonic.evercard.features.add_edit_card.ui.AddEditCardViewModel
 import com.supersonic.evercard.features.cards_list.ui.CardListViewModel
 import com.supersonic.evercard.features.root.ui.MainFragmentViewModel
+import com.supersonic.evercard.features.root.ui.MainSharedViewModel
+import com.supersonic.evercard.features.settings.ui.SettingsViewModel
+import com.supersonic.evercard.features.splash.ui.SplashFragmentViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -42,6 +46,10 @@ val appModule = module {
     // - Базу данных (single { AppDatabase.getInstance(androidContext()) })
     viewModel { MainFragmentViewModel() }
     viewModel { CardListViewModel() }
+    viewModel { SettingsViewModel(get()) }
+    viewModel { SplashFragmentViewModel() }
+    viewModel { MainSharedViewModel() }
+    //viewModel { AddEditCardViewModel() }
 }
 
 // ============================================================

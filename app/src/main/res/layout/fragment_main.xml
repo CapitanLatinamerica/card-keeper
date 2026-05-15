@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/colorSurface"
     tools:context=".features.root.ui.MainFragment">
 
     <!-- Горизонтальные направляющие (отступы 16dp) -->
@@ -38,8 +38,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
+            android:id="@+id/findBlockText"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="12dp"
             android:layout_weight="1">
 
@@ -48,6 +50,7 @@
                 android:id="@+id/findEditText"
                 style="@style/MyAwesomeEditText"
                 android:layout_width="match_parent"
+                android:layout_gravity="center_vertical"
                 android:layout_height="56dp"
                 android:hint="@string/cardNameString"
                 android:imeOptions="actionDone"
@@ -70,9 +73,13 @@
             android:id="@+id/btnSettings"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="@+id/findBlockText"
+            app:layout_constraintBottom_toBottomOf="@+id/findBlockText"
             android:background="@android:color/transparent"
-            android:contentDescription="Settings button"
-            android:src="@drawable/ic_settings_16dp" />
+            android:contentDescription="@string/settings_button_content_descr"
+            android:src="@drawable/ic_settings_16dp"
+            app:tint="?attr/colorPrimary" />
     </LinearLayout>
 
 
@@ -98,7 +105,7 @@
             android:layout_width="1dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
-            android:background="?attr/colorOnPrimary"
+            android:background="?attr/colorPrimary"
             android:alpha="0.5" />
 
         <com.google.android.material.button.MaterialButton
@@ -116,10 +123,11 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             app:icon="@drawable/shadow_add_20dp"
+            app:iconTint="?attr/colorPrimary"
+            android:tint="?attr/colorPrimary"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
-            app:iconSize="30dp"
-            app:iconTint="?attr/colorOnPrimary" />
+            app:iconSize="30dp"/>
 
     </LinearLayout>
 
@@ -136,5 +144,48 @@
         android:paddingEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/tabsContainer"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Кнопка добавления карты -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnAddCard"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="?attr/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/add_24dp"
+                app:tint="?attr/colorOnPrimary" />
+
+            <TextView
+                android:id="@+id/buttonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                style="@style/TextMedium16"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="Добавить карту" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

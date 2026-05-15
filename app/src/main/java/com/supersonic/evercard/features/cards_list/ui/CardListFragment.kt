@@ -6,18 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.repeatOnLifecycle
+import com.supersonic.evercard.R
+import androidx.navigation.fragment.findNavController
 import com.supersonic.evercard.databinding.FragmentCardListBinding
 import com.supersonic.evercard.features.root.adapter.CardAdapter
 import com.supersonic.evercard.features.root.adapter.CarouselLayoutManager
+import com.supersonic.evercard.features.root.data.DiscountCard
+import com.supersonic.evercard.features.root.ui.MainSharedViewModel
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CardListFragment : Fragment() {
 
     private val viewModel: CardListViewModel by viewModel()
+    private val sharedViewModel: MainSharedViewModel by activityViewModels()
     private var _binding: FragmentCardListBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: CardAdapter
@@ -40,13 +48,26 @@ class CardListFragment : Fragment() {
         binding.cardsRecyclerView.layoutManager = layoutManager
 
         // Адаптер с пустым списком
-        adapter = CardAdapter(emptyList())
+        adapter = CardAdapter(emptyList()) { }
         binding.cardsRecyclerView.adapter = adapter
 
-        // Подписка на данные из ViewModel
+        // Подписка на данные из ViewModel с учётом поискового запроса
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.cards.collectLatest { cards ->
-                updateAdapter(cards)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                combine(
+                    viewModel.allCards,
+                    sharedViewModel.searchQuery
+                ) { allCards, query ->
+                    if (query.isBlank()) {
+                        allCards
+                    } else {
+                        allCards.filter { card ->
+                            card.name.contains(query, ignoreCase = true)
+                        }
+                    }
+                }.collect { filteredCards ->
+                    updateAdapter(filteredCards)
+                }
             }
         }
 
@@ -66,10 +87,18 @@ class CardListFragment : Fragment() {
         }
     }
 
-    private fun updateAdapter(cards: List<com.supersonic.evercard.features.root.data.DiscountCard>) {
-        adapter.updateCards(cards)
+    private fun updateAdapter(cards: List<DiscountCard>) {
+        adapter = CardAdapter(cards) { clickedCard ->
+            // Переход на детальный экран с передачей ID карты
+            val bundle = Bundle().apply {
+                putString("card_id", clickedCard.id)
+                putString("card_name", clickedCard.name)
+                putString("card_number", clickedCard.barcode)
+            }
+            findNavController().navigate(R.id.action_cardListFragment_to_cardDetailFragment, bundle)
+        }
+        binding.cardsRecyclerView.adapter = adapter
 
-        // Устанавливаем начальную позицию в "середину" для бесконечной прокрутки
         if (cards.isNotEmpty() && binding.cardsRecyclerView.adapter == adapter) {
             val middlePosition = (Int.MAX_VALUE / 2) - ((Int.MAX_VALUE / 2) % cards.size)
             binding.cardsRecyclerView.scrollToPosition(middlePosition)

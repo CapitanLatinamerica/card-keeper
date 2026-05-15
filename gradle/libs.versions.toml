@@ -34,6 +34,7 @@ junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 activity = "1.12.4"
 constraintlayout = "2.2.1"
+coreKtxVersion = "1.7.0"
 
 [libraries]
 # Core
@@ -71,6 +72,7 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

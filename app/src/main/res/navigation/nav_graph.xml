@@ -29,4 +29,30 @@
         android:label="Main"
         tools:layout="@layout/fragment_main" />
 
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.supersonic.evercard.features.settings.ui.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/addEditCardFragment"
+        android:name="com.supersonic.evercard.features.add_edit_card.ui.AddEditCardFragment"
+        android:label="Add Edit Card"
+        tools:layout="@layout/fragment_add_edit_card" />
+
+    <action
+        android:id="@+id/action_mainFragment_to_addEditCardFragment"
+        app:destination="@id/addEditCardFragment" />
+
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.supersonic.evercard.features.card_detail.ui.CardDetailFragment"
+        android:label="Card Detail"
+        tools:layout="@layout/fragment_card_detail" />
+
+    <action
+        android:id="@+id/action_cardListFragment_to_cardDetailFragment"
+        app:destination="@id/cardDetailFragment" />
+
 </navigation>

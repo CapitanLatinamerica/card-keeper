@@ -11,4 +11,14 @@
     <string name="no_cards_found">Нет никаких карт</string>
     <string name="add_folder">Добавление новой папки</string>
     <string name="add_new_folder">Добавить папку</string>
+    <string name="settings_header">Настройки</string>
+    <string name="theme_name">Тёмная тема</string>
+    <string name="theme_light">Светлая тема</string>
+    <string name="theme_dark">Тёмная тема</string>
+    <string name="theme_carnival">Карнавао)</string>
+    <string name="theme_header">Цветовая тема</string>
+    <string name="mode_header">Отображение карт</string>
+    <string name="mode_list">Список</string>
+    <string name="mode_carousel">Карусель</string>
+    <string name="settings_button_content_descr">Settings button</string>
 </resources>

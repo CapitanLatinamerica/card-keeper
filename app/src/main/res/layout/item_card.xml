@@ -19,7 +19,7 @@
             android:id="@+id/cardImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_card_placeholder" />
 
         <!-- Градиент -->
@@ -40,10 +40,10 @@
             android:textSize="18sp"
             android:textColor="?attr/cardTitleColor"
             android:text="Название карты"
-            android:shadowColor="@android:color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="3"
+            android:shadowColor="@color/shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="15"
             android:maxLines="2"
             android:ellipsize="end"
             android:layout_gravity="start|top" />
