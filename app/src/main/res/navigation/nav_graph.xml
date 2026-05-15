@@ -45,4 +45,14 @@
         android:id="@+id/action_mainFragment_to_addEditCardFragment"
         app:destination="@id/addEditCardFragment" />
 
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.supersonic.evercard.features.card_detail.ui.CardDetailFragment"
+        android:label="Card Detail"
+        tools:layout="@layout/fragment_card_detail" />
+
+    <action
+        android:id="@+id/action_cardListFragment_to_cardDetailFragment"
+        app:destination="@id/cardDetailFragment" />
+
 </navigation>

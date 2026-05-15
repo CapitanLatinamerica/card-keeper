@@ -8,7 +8,8 @@ import com.supersonic.evercard.R
 import com.supersonic.evercard.features.root.data.DiscountCard
 
 class CardAdapter(
-    private var cards: List<DiscountCard>
+    private var cards: List<DiscountCard>,
+    private val onItemClick: (DiscountCard) -> Unit
 ) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,6 +28,10 @@ class CardAdapter(
         val card = cards[realPosition]
         holder.title.text = card.name
         holder.cardView.setCardBackgroundColor(card.color)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(card)
+        }
     }
 
     override fun getItemCount(): Int = if (cards.isEmpty()) 0 else Int.MAX_VALUE
