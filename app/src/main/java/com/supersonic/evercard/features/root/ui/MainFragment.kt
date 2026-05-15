@@ -1,14 +1,11 @@
 package com.supersonic.evercard.features.root.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -21,7 +18,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.textfield.TextInputEditText
 import com.supersonic.evercard.R
 import com.supersonic.evercard.databinding.FragmentMainBinding
-import com.supersonic.evercard.features.cards_list.ui.CardListFragment
 import com.supersonic.evercard.features.root.adapter.MediaPagerAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,31 +41,39 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Восстанавливаем сохранённую позицию таба
+        restoreTabPosition(savedInstanceState)
+        setupViewPager()
+        setupWindowInsets()
+        setupClickListeners()
+        setupTabChangeListener()
+        setupSearch()
+    }
+
+    private fun restoreTabPosition(savedInstanceState: Bundle?) {
         savedInstanceState?.getInt("current_tab")?.let {
             viewModel.setCurrentTab(it)
         }
+    }
 
+    private fun setupViewPager() {
         pagerAdapter = MediaPagerAdapter(this)
         binding.viewPager.adapter = pagerAdapter
-        val tabLayout = binding.tabs
-        val viewPager = binding.viewPager
+        binding.viewPager.offscreenPageLimit = 3
 
-        viewPager.offscreenPageLimit = 3
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = pagerAdapter.getTitle(position)
+        }.attach()
+    }
 
-        // Отступы под системные бары
+    private fun setupWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
 
-        viewPager.adapter = pagerAdapter
-
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = pagerAdapter.getTitle(position)
-        }.attach()
-
+    private fun setupClickListeners() {
         binding.btnSettings.setOnClickListener {
             findNavController().navigate(R.id.settingsFragment)
         }
@@ -81,15 +85,15 @@ class MainFragment : Fragment() {
         binding.btnAddFolder.setOnClickListener {
             showCreateFolderDialog()
         }
+    }
 
-        // Сохраняем позицию таба при переключении
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+    private fun setupTabChangeListener() {
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 viewModel.setCurrentTab(position)
             }
         })
-        setupSearch()
     }
 
     private fun setupSearch() {
@@ -104,9 +108,7 @@ class MainFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val query = s?.toString() ?: ""
-                Log.d("SearchDebug", "Query changed: '$query'")
-                sharedViewModel.updateSearchQuery(query)
+                sharedViewModel.updateSearchQuery(s?.toString() ?: "")
                 updateClearButtonVisibility()
             }
 
@@ -141,29 +143,9 @@ class MainFragment : Fragment() {
     }
 
     private fun createNewTab(folderName: String) {
-        Log.d("MainFragment", "createNewTab called with name: $folderName")
         val currentCount = pagerAdapter.itemCount
-        Log.d("MainFragment", "Current count before add: $currentCount")
-
-        pagerAdapter.addFolder(CardListFragment.newInstance(), folderName)
-
-        Log.d("MainFragment", "Count after add: ${pagerAdapter.itemCount}")
-        Log.d("MainFragment", "Titles: ${pagerAdapter.getTitles()}")
-
+        pagerAdapter.addFolder(folderName)
         binding.viewPager.setCurrentItem(currentCount, true)
-    }
-
-    private fun saveFolders() {
-        val prefs = requireContext().getSharedPreferences("folders", Context.MODE_PRIVATE)
-        prefs.edit().putStringSet("folder_list", pagerAdapter.getTitles().toSet()).apply()
-    }
-
-    private fun loadFolders() {
-        val prefs = requireContext().getSharedPreferences("folders", Context.MODE_PRIVATE)
-        val savedTitles = prefs.getStringSet("folder_list", emptySet()) ?: emptySet()
-        savedTitles.forEach { title ->
-            pagerAdapter.addFragment(CardListFragment.newInstance(), title)
-        }
     }
 
     override fun onDestroyView() {
@@ -177,5 +159,4 @@ class MainFragment : Fragment() {
             outState.putInt("current_tab", it)
         }
     }
-
 }
