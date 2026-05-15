@@ -20,12 +20,14 @@ import com.supersonic.evercard.data.db.entity.LoyaltyCardEntity
     version = 1,                            // Текущая версия
     exportSchema = false                     // Не сохранять схему
 )
+
 abstract class AppDatabase : RoomDatabase() {
 
     /**
      * Абстрактный метод, который Room реализует автоматически.
      * Через него мы будем получать наш Dao.
      */
+
     abstract fun loyaltyCardDao(): LoyaltyCardDao
 
     companion object {
@@ -52,9 +54,11 @@ abstract class AppDatabase : RoomDatabase() {
                 // Вторая проверка: могло создаться в другом потоке
                 val instance = Room.databaseBuilder(
                     context.applicationContext,  // Контекст приложения (не Activity!)
-                    AppDatabase::class.java,     // Класс нашей БД
+                    AppDatabase::class.java,     // Класс БД
                     "evercard_database"           // Имя файла базы данных
-                ).build()
+                )
+                    .allowMainThreadQueries()
+                    .build()
 
                 INSTANCE = instance
                 instance

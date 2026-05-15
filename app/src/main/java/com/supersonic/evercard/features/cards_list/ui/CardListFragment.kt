@@ -13,9 +13,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.supersonic.evercard.R
 import androidx.navigation.fragment.findNavController
 import com.supersonic.evercard.databinding.FragmentCardListBinding
+import com.supersonic.evercard.domain.model.LoyaltyCard
 import com.supersonic.evercard.features.root.adapter.CardAdapter
 import com.supersonic.evercard.features.root.adapter.CarouselLayoutManager
-import com.supersonic.evercard.features.root.data.DiscountCard
 import com.supersonic.evercard.features.root.ui.MainSharedViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
@@ -62,7 +62,7 @@ class CardListFragment : Fragment() {
                         allCards
                     } else {
                         allCards.filter { card ->
-                            card.name.contains(query, ignoreCase = true)
+                            card.shopName.contains(query, ignoreCase = true)
                         }
                     }
                 }.collect { filteredCards ->
@@ -87,13 +87,12 @@ class CardListFragment : Fragment() {
         }
     }
 
-    private fun updateAdapter(cards: List<DiscountCard>) {
+    private fun updateAdapter(cards: List<LoyaltyCard>) {
         adapter = CardAdapter(cards) { clickedCard ->
-            // Переход на детальный экран с передачей ID карты
             val bundle = Bundle().apply {
-                putString("card_id", clickedCard.id)
-                putString("card_name", clickedCard.name)
-                putString("card_number", clickedCard.barcode)
+                putLong("card_id", clickedCard.id)
+                putString("card_name", clickedCard.shopName)
+                putString("card_number", clickedCard.cardNumber)
             }
             findNavController().navigate(R.id.action_cardListFragment_to_cardDetailFragment, bundle)
         }

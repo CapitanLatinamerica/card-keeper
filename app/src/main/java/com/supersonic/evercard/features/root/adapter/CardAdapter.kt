@@ -3,13 +3,14 @@ package com.supersonic.evercard.features.root.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.supersonic.evercard.R
-import com.supersonic.evercard.features.root.data.DiscountCard
+import com.supersonic.evercard.domain.model.LoyaltyCard
 
 class CardAdapter(
-    private var cards: List<DiscountCard>,
-    private val onItemClick: (DiscountCard) -> Unit
+    private var cards: List<LoyaltyCard>,
+    private val onItemClick: (LoyaltyCard) -> Unit
 ) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -26,8 +27,13 @@ class CardAdapter(
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val realPosition = position % cards.size
         val card = cards[realPosition]
-        holder.title.text = card.name
-        holder.cardView.setCardBackgroundColor(card.color)
+        holder.title.text = card.shopName
+
+        val backgroundColor = card.color ?: ContextCompat.getColor(
+            holder.itemView.context,
+            R.color.default_card_color
+        )
+        holder.cardView.setCardBackgroundColor(backgroundColor)
 
         holder.itemView.setOnClickListener {
             onItemClick(card)
@@ -36,7 +42,7 @@ class CardAdapter(
 
     override fun getItemCount(): Int = if (cards.isEmpty()) 0 else Int.MAX_VALUE
 
-    fun updateCards(newCards: List<DiscountCard>) {
+    fun updateCards(newCards: List<LoyaltyCard>) {
         cards = newCards
         notifyDataSetChanged()
     }

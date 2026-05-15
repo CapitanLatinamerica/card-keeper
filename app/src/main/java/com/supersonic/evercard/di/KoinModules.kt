@@ -2,6 +2,9 @@ package com.supersonic.evercard.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.supersonic.evercard.data.db.AppDatabase
+import com.supersonic.evercard.data.db.repository.LoyaltyCardRepository
+import com.supersonic.evercard.data.db.repository.LoyaltyCardRepositoryImpl
 import com.supersonic.evercard.features.add_edit_card.ui.AddEditCardViewModel
 import com.supersonic.evercard.features.cards_list.ui.CardListViewModel
 import com.supersonic.evercard.features.root.ui.MainFragmentViewModel
@@ -41,15 +44,19 @@ val appModule = module {
         provideSharedPreferences(androidContext())
     }
 
-    // Здесь можно добавить другие зависимости:
-    // - Репозитории (single { LoyaltyCardRepositoryImpl(get()) })
-    // - Базу данных (single { AppDatabase.getInstance(androidContext()) })
+    // База данных
+    single { AppDatabase.getInstance(androidContext()) }
+    // Dao
+    single { get<AppDatabase>().loyaltyCardDao() }
+
+    single<LoyaltyCardRepository> { LoyaltyCardRepositoryImpl(get()) }
+
     viewModel { MainFragmentViewModel() }
-    viewModel { CardListViewModel() }
+    viewModel { CardListViewModel(get()) }
     viewModel { SettingsViewModel(get()) }
     viewModel { SplashFragmentViewModel() }
     viewModel { MainSharedViewModel() }
-    //viewModel { AddEditCardViewModel() }
+
 }
 
 // ============================================================
