@@ -21,4 +21,8 @@
     <string name="mode_list">Список</string>
     <string name="mode_carousel">Карусель</string>
     <string name="settings_button_content_descr">Settings button</string>
+    <string name="enter_card_title">Введите название карты</string>
+    <string name="new_card_title">Название*</string>
+    <string name="new_card_comment">Комментарий</string>
+    <string name="enter_description">Введите описание (необязательно)</string>
 </resources>
